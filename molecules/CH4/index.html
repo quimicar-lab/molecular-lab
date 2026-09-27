@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Metano · QuímicAR</title>
+
+  <script type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js">
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #1f2937;
+      text-align: center;
+    }
+
+    header {
+      padding: 25px 20px 10px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin: 0;
+    }
+
+    .ar {
+      color: #2563eb;
+    }
+
+    .subtitle {
+      color: #64748b;
+      margin-top: 8px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 10px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card {
+      max-width: 700px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 450px;
+      background-color: #eef2f7;
+      border-radius: 15px;
+    }
+
+    h2 {
+      margin-bottom: 5px;
+    }
+
+    .formula {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .info {
+      line-height: 1.7;
+    }
+
+    button[slot="ar-button"] {
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 22px;
+      font-size: 16px;
+      font-weight: bold;
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Químic<span class="ar">AR</span></h1>
+  <p class="subtitle">Química en 3D y Realidad Aumentada</p>
+
+  <a class="back" href="../../">
+    ← Volver a QuímicAR
+  </a>
+</header>
+
+<div class="card">
+
+  <h2>Metano</h2>
+  <div class="formula">CH₄</div>
+
+  <model-viewer
+    src="../../CH4.glb"
+    alt="Modelo molecular 3D del metano"
+    camera-controls
+    auto-rotate
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    shadow-intensity="1">
+
+    <button slot="ar-button">
+      📱 Ver en Realidad Aumentada
+    </button>
+
+  </model-viewer>
+
+  <div class="info">
+    <p><strong>Modelo RPECV:</strong> AX₄</p>
+    <p><strong>Geometría:</strong> Tetraédrica</p>
+    <p><strong>Ángulo de enlace:</strong> 109,5°</p>
+  </div>
+
+</div>
+
+</body>
+</html>
