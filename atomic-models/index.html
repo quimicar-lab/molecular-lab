@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Modelos atómicos · QuímicAR</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #1f2937;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    .ar { color: #2563eb; }
+
+    .subtitle {
+      color: #64748b;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 10px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 15px auto 30px;
+      padding: 0 20px;
+      text-align: center;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .models {
+      max-width: 900px;
+      margin: auto;
+      padding: 0 20px 50px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .model {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    }
+
+    .model h2 {
+      margin-top: 0;
+    }
+
+    .model p {
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .active {
+      text-decoration: none;
+      color: #1f2937;
+      transition: transform 0.2s;
+    }
+
+    .active:hover {
+      transform: translateY(-4px);
+    }
+
+    .year {
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    .button {
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    .disabled {
+      opacity: 0.55;
+    }
+
+    .soon {
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 650px) {
+      .models {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Químic<span class="ar">AR</span></h1>
+  <p class="subtitle">Modelos atómicos</p>
+
+  <a class="back" href="../">
+    ← Volver a QuímicAR
+  </a>
+</header>
+
+<p class="intro">
+  Explora cómo ha cambiado nuestra idea del átomo a lo largo de la historia.
+  Cada modelo permitió explicar nuevas observaciones y abrió el camino al siguiente.
+</p>
+
+<main class="models">
+
+  <div class="model disabled">
+    <span class="year">1803</span>
+    <h2>Dalton</h2>
+    <p>El átomo como una partícula indivisible característica de cada elemento.</p>
+    <span class="soon">PRÓXIMAMENTE</span>
+  </div>
+
+  <div class="model disabled">
+    <span class="year">1904</span>
+    <h2>Thomson</h2>
+    <p>Los electrones aparecen dentro de una distribución de carga positiva.</p>
+    <span class="soon">PRÓXIMAMENTE</span>
+  </div>
+
+  <a class="model active" href="rutherford/">
+    <span class="year">1911</span>
+    <h2>Rutherford</h2>
+    <p>
+      Un núcleo muy pequeño concentra la carga positiva y prácticamente
+      toda la masa del átomo.
+    </p>
+    <span class="button">Explorar modelo →</span>
+  </a>
+
+  <div class="model disabled">
+    <span class="year">1913</span>
+    <h2>Bohr</h2>
+    <p>Los electrones ocupan determinados niveles de energía.</p>
+    <span class="soon">PRÓXIMAMENTE</span>
+  </div>
+
+  <div class="model disabled">
+    <span class="year">Actual</span>
+    <h2>Modelo cuántico</h2>
+    <p>
+      Los electrones se describen mediante orbitales y distribuciones
+      de probabilidad.
+    </p>
+    <span class="soon">PRÓXIMAMENTE</span>
+  </div>
+
+</main>
+
+</body>
+</html>
