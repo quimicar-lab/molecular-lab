@@ -1,176 +1,609 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Modelos atómicos · QuímicAR</title>
+<title>Modelos atómicos · QuímicAR</title>
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #1f2937;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  color: #1f2937;
+}
 
-    h1 {
-      margin-bottom: 5px;
-    }
+header {
+  text-align: center;
+  padding: 40px 20px 10px;
+}
 
-    .ar { color: #2563eb; }
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+}
 
-    .subtitle {
-      color: #64748b;
-    }
+.ar {
+  color: #2563eb;
+}
 
-    .back {
-      display: inline-block;
-      margin-top: 10px;
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.subtitle {
+  color: #64748b;
+  margin-top: 8px;
+}
 
-    .intro {
-      max-width: 700px;
-      margin: 15px auto 30px;
-      padding: 0 20px;
-      text-align: center;
-      color: #475569;
-      line-height: 1.6;
-    }
+.back {
+  display: inline-block;
+  margin-top: 12px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    .models {
-      max-width: 900px;
-      margin: auto;
-      padding: 0 20px 50px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+.intro {
+  max-width: 720px;
+  margin: 25px auto 50px;
+  text-align: center;
+  color: #475569;
+  line-height: 1.6;
+  padding: 0 20px;
+}
 
-    .model {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-    }
 
-    .model h2 {
-      margin-top: 0;
-    }
+/* TIMELINE */
 
-    .model p {
-      color: #64748b;
-      line-height: 1.5;
-    }
+.timeline {
+  max-width: 1150px;
+  margin: auto;
+  padding: 0 25px 60px;
 
-    .active {
-      text-decoration: none;
-      color: #1f2937;
-      transition: transform 0.2s;
-    }
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+}
 
-    .active:hover {
-      transform: translateY(-4px);
-    }
+.timeline::before {
+  content: "";
+  position: absolute;
 
-    .year {
-      color: #2563eb;
-      font-weight: bold;
-    }
+  top: 136px;
+  left: 10%;
+  right: 10%;
 
-    .button {
-      color: #2563eb;
-      font-weight: bold;
-    }
+  height: 4px;
+  background: #cbd5e1;
+  z-index: 0;
+}
 
-    .disabled {
-      opacity: 0.55;
-    }
 
-    .soon {
-      font-size: 0.85rem;
-      font-weight: bold;
-      color: #94a3b8;
-    }
+/* EACH MODEL */
 
-    @media (max-width: 650px) {
-      .models {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.step {
+  position: relative;
+  text-align: center;
+  padding: 0 10px;
+  z-index: 1;
+}
+
+.visual {
+  height: 110px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visual svg {
+  width: 105px;
+  height: 105px;
+}
+
+.year {
+  color: #2563eb;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+
+  background: #2563eb;
+  border: 4px solid #f5f7fa;
+
+  border-radius: 50%;
+
+  margin: 14px auto 18px;
+}
+
+.content {
+  background: white;
+  border-radius: 16px;
+
+  padding: 18px 14px;
+  min-height: 205px;
+
+  box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+}
+
+.content h2 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+}
+
+.content p {
+  color: #64748b;
+  font-size: 0.93rem;
+  line-height: 1.45;
+}
+
+.soon {
+  display: inline-block;
+  margin-top: 10px;
+
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.explore {
+  display: inline-block;
+  margin-top: 10px;
+
+  color: #2563eb;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+/* ATOM GRAPHICS */
+
+.orbit {
+  fill: none;
+  stroke: #94a3b8;
+  stroke-width: 2;
+}
+
+.electron {
+  fill: #2563eb;
+}
+
+.nucleus {
+  fill: #ef4444;
+}
+
+.positive {
+  fill: #fca5a5;
+}
+
+.atom {
+  fill: #64748b;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .timeline {
+    display: block;
+    max-width: 520px;
+    padding-left: 65px;
+  }
+
+  .timeline::before {
+    top: 0;
+    bottom: 40px;
+    left: 35px;
+    right: auto;
+
+    width: 4px;
+    height: auto;
+  }
+
+  .step {
+    margin-bottom: 45px;
+    text-align: left;
+  }
+
+  .visual {
+    justify-content: flex-start;
+  }
+
+  .dot {
+    position: absolute;
+    left: -39px;
+    top: 120px;
+  }
+
+  .content {
+    min-height: auto;
+  }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
+
 <header>
-  <h1>Químic<span class="ar">AR</span></h1>
-  <p class="subtitle">Modelos atómicos</p>
 
-  <a class="back" href="../">
-    ← Volver a QuímicAR
-  </a>
-</header>
+<h1>Químic<span class="ar">AR</span></h1>
 
-<p class="intro">
-  Explora cómo ha cambiado nuestra idea del átomo a lo largo de la historia.
-  Cada modelo permitió explicar nuevas observaciones y abrió el camino al siguiente.
+<p class="subtitle">
+Modelos atómicos
 </p>
 
-<main class="models">
+<a class="back" href="../">
+← Volver a QuímicAR
+</a>
 
-  <div class="model disabled">
-    <span class="year">1803</span>
-    <h2>Dalton</h2>
-    <p>El átomo como una partícula indivisible característica de cada elemento.</p>
-    <span class="soon">PRÓXIMAMENTE</span>
-  </div>
+</header>
 
-  <div class="model disabled">
-    <span class="year">1904</span>
-    <h2>Thomson</h2>
-    <p>Los electrones aparecen dentro de una distribución de carga positiva.</p>
-    <span class="soon">PRÓXIMAMENTE</span>
-  </div>
 
-  <a class="model active" href="rutherford/">
-    <span class="year">1911</span>
-    <h2>Rutherford</h2>
-    <p>
-      Un núcleo muy pequeño concentra la carga positiva y prácticamente
-      toda la masa del átomo.
-    </p>
-    <span class="button">Explorar modelo →</span>
-  </a>
+<p class="intro">
+Nuestra idea del átomo no apareció de repente.
+Cada nuevo modelo intentó explicar observaciones que el anterior
+no podía explicar. Recorre esta línea del tiempo para descubrir
+cómo evolucionó nuestra visión de la materia.
+</p>
 
-  <div class="model disabled">
-    <span class="year">1913</span>
-    <h2>Bohr</h2>
-    <p>Los electrones ocupan determinados niveles de energía.</p>
-    <span class="soon">PRÓXIMAMENTE</span>
-  </div>
 
-  <div class="model disabled">
-    <span class="year">Actual</span>
-    <h2>Modelo cuántico</h2>
-    <p>
-      Los electrones se describen mediante orbitales y distribuciones
-      de probabilidad.
-    </p>
-    <span class="soon">PRÓXIMAMENTE</span>
-  </div>
+
+<main class="timeline">
+
+
+<!-- DALTON -->
+
+<div class="step">
+
+<div class="visual">
+
+<svg viewBox="0 0 120 120">
+
+<defs>
+<radialGradient id="daltonGradient">
+<stop offset="0%" stop-color="#94a3b8"/>
+<stop offset="100%" stop-color="#334155"/>
+</radialGradient>
+</defs>
+
+<circle
+cx="60"
+cy="60"
+r="38"
+fill="url(#daltonGradient)"
+/>
+
+</svg>
+
+</div>
+
+<div class="year">1803</div>
+
+<div class="dot"></div>
+
+<div class="content">
+
+<h2>Dalton</h2>
+
+<p>
+La materia está formada por átomos,
+considerados partículas indivisibles.
+</p>
+
+<span class="soon">
+PRÓXIMAMENTE
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- THOMSON -->
+
+<div class="step">
+
+<div class="visual">
+
+<svg viewBox="0 0 120 120">
+
+<circle
+cx="60"
+cy="60"
+r="40"
+class="positive"
+/>
+
+<circle cx="43" cy="45" r="5" class="electron"/>
+<circle cx="72" cy="40" r="5" class="electron"/>
+<circle cx="80" cy="70" r="5" class="electron"/>
+<circle cx="48" cy="78" r="5" class="electron"/>
+<circle cx="62" cy="60" r="5" class="electron"/>
+
+</svg>
+
+</div>
+
+<div class="year">1904</div>
+
+<div class="dot"></div>
+
+<div class="content">
+
+<h2>Thomson</h2>
+
+<p>
+Los electrones se encuentran dentro
+de una distribución de carga positiva.
+</p>
+
+<span class="soon">
+PRÓXIMAMENTE
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- RUTHERFORD -->
+
+<div class="step">
+
+<div class="visual">
+
+<svg viewBox="0 0 120 120">
+
+<ellipse
+cx="60"
+cy="60"
+rx="46"
+ry="18"
+class="orbit"
+transform="rotate(25 60 60)"
+/>
+
+<ellipse
+cx="60"
+cy="60"
+rx="46"
+ry="18"
+class="orbit"
+transform="rotate(-35 60 60)"
+/>
+
+<circle
+cx="60"
+cy="60"
+r="10"
+class="nucleus"
+/>
+
+<circle
+cx="95"
+cy="40"
+r="5"
+class="electron"
+/>
+
+<circle
+cx="29"
+cy="75"
+r="5"
+class="electron"
+/>
+
+</svg>
+
+</div>
+
+<div class="year">1911</div>
+
+<div class="dot"></div>
+
+<div class="content">
+
+<h2>Rutherford</h2>
+
+<p>
+Un núcleo muy pequeño concentra
+la carga positiva y prácticamente
+toda la masa.
+</p>
+
+<a
+class="explore"
+href="rutherford/">
+Explorar modelo →
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- BOHR -->
+
+<div class="step">
+
+<div class="visual">
+
+<svg viewBox="0 0 120 120">
+
+<circle
+cx="60"
+cy="60"
+r="12"
+class="nucleus"
+/>
+
+<circle
+cx="60"
+cy="60"
+r="28"
+class="orbit"
+/>
+
+<circle
+cx="60"
+cy="60"
+r="46"
+class="orbit"
+/>
+
+<circle
+cx="88"
+cy="60"
+r="5"
+class="electron"
+/>
+
+<circle
+cx="14"
+cy="60"
+r="5"
+class="electron"
+/>
+
+<circle
+cx="106"
+cy="60"
+r="5"
+class="electron"
+/>
+
+</svg>
+
+</div>
+
+<div class="year">1913</div>
+
+<div class="dot"></div>
+
+<div class="content">
+
+<h2>Bohr</h2>
+
+<p>
+Los electrones ocupan determinados
+niveles de energía alrededor del núcleo.
+</p>
+
+<span class="soon">
+PRÓXIMAMENTE
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- QUANTUM -->
+
+<div class="step">
+
+<div class="visual">
+
+<svg viewBox="0 0 120 120">
+
+<defs>
+
+<radialGradient id="cloud">
+
+<stop
+offset="0%"
+stop-color="#2563eb"
+stop-opacity="0.55"
+/>
+
+<stop
+offset="100%"
+stop-color="#2563eb"
+stop-opacity="0"
+/>
+
+</radialGradient>
+
+</defs>
+
+<circle
+cx="60"
+cy="60"
+r="48"
+fill="url(#cloud)"
+/>
+
+<ellipse
+cx="60"
+cy="60"
+rx="45"
+ry="20"
+fill="url(#cloud)"
+transform="rotate(45 60 60)"
+/>
+
+<ellipse
+cx="60"
+cy="60"
+rx="45"
+ry="20"
+fill="url(#cloud)"
+transform="rotate(-45 60 60)"
+/>
+
+<circle
+cx="60"
+cy="60"
+r="8"
+class="nucleus"
+/>
+
+</svg>
+
+</div>
+
+<div class="year">Actual</div>
+
+<div class="dot"></div>
+
+<div class="content">
+
+<h2>Modelo cuántico</h2>
+
+<p>
+Los electrones se describen mediante
+orbitales y distribuciones de probabilidad.
+</p>
+
+<span class="soon">
+PRÓXIMAMENTE
+</span>
+
+</div>
+
+</div>
+
 
 </main>
+
+
+</body>
+</html>
 
 </body>
 </html>
