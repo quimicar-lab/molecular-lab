@@ -42,7 +42,7 @@ header {
 }
 
 .container {
-  max-width: 950px;
+  max-width: 1000px;
   margin: 20px auto 50px;
   padding: 0 20px;
 }
@@ -59,7 +59,7 @@ header {
 }
 
 .title h1 {
-  margin-bottom: 5px;
+  margin: 5px 0 8px;
 }
 
 .year {
@@ -67,16 +67,136 @@ header {
   font-weight: bold;
 }
 
+.intro {
+  text-align: center;
+  color: #64748b;
+  margin: 0 auto 25px;
+  max-width: 650px;
+  line-height: 1.5;
+}
+
+
+/* SELECTOR */
+
+.element-panel {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 25px;
+  align-items: center;
+
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.periodic-card {
+  width: 150px;
+  height: 170px;
+
+  background: white;
+  border: 3px solid #2563eb;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+  position: relative;
+}
+
+.atomic-number {
+  position: absolute;
+  top: 10px;
+  left: 13px;
+
+  font-weight: bold;
+  color: #475569;
+}
+
+.symbol {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #2563eb;
+  line-height: 1;
+}
+
+.element-name {
+  font-weight: bold;
+  margin-top: 7px;
+}
+
+.atomic-mass {
+  color: #64748b;
+  margin-top: 5px;
+}
+
+.element-controls label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.element-controls select {
+  width: 100%;
+  max-width: 330px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+
+  background: white;
+  color: #1f2937;
+
+  font-size: 1rem;
+}
+
+.element-controls h2 {
+  margin: 18px 0 5px;
+  font-size: 1.5rem;
+}
+
+.element-type {
+  color: #2563eb;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.quick-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.data-pill {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 7px 11px;
+
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+
 /* VISOR */
 
 .viewer {
   width: 100%;
   height: 500px;
+
   margin-top: 20px;
+
   border-radius: 16px;
   overflow: hidden;
+
   background:
     radial-gradient(circle at center, #ffffff 0%, #eef2f7 75%);
+
   position: relative;
 }
 
@@ -91,11 +211,15 @@ header {
   bottom: 12px;
   left: 0;
   right: 0;
+
   text-align: center;
+
   color: #64748b;
   font-size: 0.85rem;
+
   pointer-events: none;
 }
+
 
 /* LEYENDA */
 
@@ -104,6 +228,7 @@ header {
   justify-content: center;
   gap: 25px;
   flex-wrap: wrap;
+
   margin: 22px 0 5px;
 }
 
@@ -114,28 +239,95 @@ header {
 }
 
 .ball {
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
+
   border-radius: 50%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
 }
 
 .proton { background: #ef4444; }
 .neutron { background: #64748b; }
 .electron { background: #2563eb; }
 
-/* INFO */
 
-.info {
-  margin-top: 25px;
-  border-top: 1px solid #e2e8f0;
-  padding-top: 20px;
+.atom-summary {
+  text-align: center;
+  color: #475569;
+
+  margin-top: 15px;
+  font-weight: bold;
 }
 
-.info h2 {
+
+/* CONOCE EL ELEMENTO */
+
+.element-info {
+  margin-top: 35px;
+  padding-top: 30px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin-bottom: 6px;
+}
+
+.section-heading p {
+  color: #64748b;
   margin-top: 0;
 }
 
-.info p {
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.info-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  padding: 18px;
+  background: #ffffff;
+}
+
+.info-box h3 {
+  margin: 0 0 9px;
+  font-size: 1.05rem;
+}
+
+.info-box p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.55;
+}
+
+
+/* RUTHERFORD */
+
+.rutherford-info {
+  margin-top: 35px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 25px;
+}
+
+.rutherford-info h2 {
+  margin-top: 0;
+}
+
+.rutherford-info p {
   line-height: 1.65;
   color: #475569;
 }
@@ -143,139 +335,451 @@ header {
 .warning {
   background: #f8fafc;
   border-left: 4px solid #2563eb;
+
   padding: 13px 16px;
   margin-top: 20px;
+
   color: #475569;
   line-height: 1.5;
 }
 
+
+/* MÓVIL */
+
 @media (max-width: 650px) {
-  .viewer {
-    height: 390px;
+
+  .container {
+    padding: 0 12px;
   }
 
   .card {
     padding: 15px;
   }
+
+  .element-panel {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .element-controls select {
+    max-width: 100%;
+  }
+
+  .quick-data {
+    justify-content: center;
+  }
+
+  .viewer {
+    height: 390px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 
+
 <body>
 
 <header>
-  <div class="logo">Químic<span class="ar">AR</span></div>
-  <p class="subtitle">Modelos atómicos</p>
+
+  <div class="logo">
+    Químic<span class="ar">AR</span>
+  </div>
+
+  <p class="subtitle">
+    Modelos atómicos
+  </p>
 
   <a class="back" href="../">
     ← Volver a modelos atómicos
   </a>
+
 </header>
+
 
 <main class="container">
 
 <div class="card">
 
+
+  <!-- TÍTULO -->
+
   <div class="title">
-    <span class="year">1911</span>
-    <h1>Modelo atómico de Rutherford</h1>
+
+    <span class="year">
+      1911
+    </span>
+
+    <h1>
+      Modelo atómico de Rutherford
+    </h1>
+
+    <p class="intro">
+      Explora la estructura del átomo y descubre
+      las características de diferentes elementos químicos.
+    </p>
+
   </div>
 
+
+
+  <!-- ELEMENTO -->
+
+  <section class="element-panel">
+
+    <div class="periodic-card">
+
+      <span class="atomic-number">
+        3
+      </span>
+
+      <span class="symbol">
+        Li
+      </span>
+
+      <span class="element-name">
+        Litio
+      </span>
+
+      <span class="atomic-mass">
+        6,94
+      </span>
+
+    </div>
+
+
+    <div class="element-controls">
+
+      <label for="elementSelect">
+        Elige un elemento
+      </label>
+
+      <select id="elementSelect">
+        <option value="Li">
+          Litio (Li)
+        </option>
+      </select>
+
+
+      <h2>
+        Litio
+      </h2>
+
+      <div class="element-type">
+        Metal alcalino
+      </div>
+
+
+      <div class="quick-data">
+
+        <span class="data-pill">
+          Grupo 1
+        </span>
+
+        <span class="data-pill">
+          Periodo 2
+        </span>
+
+        <span class="data-pill">
+          Z = 3
+        </span>
+
+        <span class="data-pill">
+          Estado: sólido
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- VISOR -->
+
   <div class="viewer">
+
     <canvas id="atomCanvas"></canvas>
 
     <div class="hint">
       Arrastra para girar · Rueda o pellizca para hacer zoom
     </div>
+
   </div>
 
+
+
+  <!-- LEYENDA -->
+
   <div class="legend">
+
     <div class="legend-item">
-      <span class="ball proton"></span>
+      <span class="ball proton">+</span>
       Protón
     </div>
 
     <div class="legend-item">
-      <span class="ball neutron"></span>
+      <span class="ball neutron">0</span>
       Neutrón
     </div>
 
     <div class="legend-item">
-      <span class="ball electron"></span>
+      <span class="ball electron">−</span>
       Electrón
     </div>
+
   </div>
 
-  <section class="info">
 
-    <h2>¿Qué propuso Rutherford?</h2>
+  <div class="atom-summary">
+    ⁷Li · 3 protones · 4 neutrones · 3 electrones · Átomo neutro
+  </div>
 
-    <p>
-      Rutherford propuso que prácticamente toda la masa del átomo
-      y su carga positiva se concentran en una región extremadamente
-      pequeña: el <strong>núcleo</strong>.
-    </p>
 
-    <p>
-      Los electrones se encuentran alrededor del núcleo y la mayor
-      parte del volumen del átomo es <strong>espacio vacío</strong>.
-    </p>
 
-    <p>
-      Este modelo surgió a partir de los resultados del famoso
-      experimento de dispersión de partículas alfa realizado por
-      Geiger y Marsden bajo la dirección de Rutherford.
-    </p>
+  <!-- INFORMACIÓN DEL LITIO -->
 
-    <div class="warning">
-      <strong>Representación didáctica:</strong>
-      el dibujo no está a escala. Además, los neutrones fueron
-      descubiertos posteriormente por James Chadwick en 1932.
-      Se muestran aquí para facilitar la identificación de las
-      partículas que forman el núcleo.
+  <section class="element-info">
+
+    <div class="section-heading">
+
+      <h2>
+        Conoce el litio
+      </h2>
+
+      <p>
+        Un vistazo a su estructura, propiedades,
+        historia y aplicaciones.
+      </p>
+
+    </div>
+
+
+    <div class="info-grid">
+
+
+      <article class="info-box">
+
+        <h3>
+          ⚛️ Estructura
+        </h3>
+
+        <p>
+          El litio tiene número atómico 3, por lo que
+          posee 3 protones. Un átomo neutro contiene
+          también 3 electrones. Su configuración
+          electrónica es 1s² 2s¹.
+        </p>
+
+      </article>
+
+
+
+      <article class="info-box">
+
+        <h3>
+          🔎 Historia
+        </h3>
+
+        <p>
+          Fue descubierto en 1817 por el químico sueco
+          Johan August Arfwedson al estudiar el mineral
+          petalita. Su nombre procede del griego
+          <em>lithos</em>, que significa “piedra”.
+        </p>
+
+      </article>
+
+
+
+      <article class="info-box">
+
+        <h3>
+          🌍 En la naturaleza
+        </h3>
+
+        <p>
+          Debido a su elevada reactividad no aparece
+          normalmente como elemento libre. Se encuentra
+          formando compuestos en determinados minerales
+          y también en salmueras.
+        </p>
+
+      </article>
+
+
+
+      <article class="info-box">
+
+        <h3>
+          ⚙️ Propiedades
+        </h3>
+
+        <p>
+          Es un metal alcalino de color plateado,
+          blando y muy ligero. Es el metal menos denso
+          y reacciona con facilidad, por ejemplo,
+          con el agua y el oxígeno.
+        </p>
+
+      </article>
+
+
+
+      <article class="info-box">
+
+        <h3>
+          🔋 Usos
+        </h3>
+
+        <p>
+          Es especialmente conocido por su utilización
+          en baterías recargables. También se emplea
+          en cerámicas y vidrios especiales, aleaciones
+          y diferentes procesos industriales.
+        </p>
+
+      </article>
+
+
+
+      <article class="info-box">
+
+        <h3>
+          💡 Curiosidades
+        </h3>
+
+        <p>
+          Es el elemento sólido más ligero de la tabla
+          periódica. Su baja densidad hace que pueda
+          flotar sobre el agua, aunque reaccionaría
+          rápidamente con ella.
+        </p>
+
+      </article>
+
+
     </div>
 
   </section>
+
+
+
+  <!-- INFORMACIÓN RUTHERFORD -->
+
+  <section class="rutherford-info">
+
+    <h2>
+      ¿Qué propuso Rutherford?
+    </h2>
+
+    <p>
+      Rutherford propuso que prácticamente toda la masa
+      del átomo y su carga positiva se concentran en una
+      región extremadamente pequeña:
+      el <strong>núcleo</strong>.
+    </p>
+
+    <p>
+      Los electrones se encuentran alrededor del núcleo
+      y la mayor parte del volumen del átomo es
+      <strong>espacio vacío</strong>.
+    </p>
+
+    <p>
+      Este modelo surgió a partir de los resultados
+      del famoso experimento de dispersión de partículas
+      alfa realizado por Geiger y Marsden bajo la
+      dirección de Rutherford.
+    </p>
+
+
+    <div class="warning">
+
+      <strong>Representación didáctica:</strong>
+
+      el modelo no está a escala y representa
+      <strong>litio-7 (⁷Li)</strong> para visualizar
+      sus partículas.
+
+      Los neutrones fueron descubiertos posteriormente
+      por James Chadwick en 1932, por lo que no formaban
+      parte del modelo original de Rutherford.
+
+    </div>
+
+  </section>
+
 
 </div>
 
 </main>
 
 
+
+<!-- THREE.JS: mantenemos la versión compatible con iPad -->
+
 <script type="module">
 
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.180.0/+esm";
-import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/controls/OrbitControls.js/+esm";
+import * as THREE
+from "https://cdn.jsdelivr.net/npm/three@0.180.0/+esm";
 
-const canvas = document.getElementById("atomCanvas");
-const viewer = canvas.parentElement;
+import { OrbitControls }
+from "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/controls/OrbitControls.js/+esm";
+
+
+const canvas =
+  document.getElementById("atomCanvas");
+
+const viewer =
+  canvas.parentElement;
+
 
 
 /* ESCENA */
 
-const scene = new THREE.Scene();
+const scene =
+  new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(
-  45,
-  viewer.clientWidth / viewer.clientHeight,
-  0.1,
-  100
+
+const camera =
+  new THREE.PerspectiveCamera(
+    45,
+    viewer.clientWidth / viewer.clientHeight,
+    0.1,
+    100
+  );
+
+
+camera.position.set(
+  0,
+  3,
+  10
 );
 
-camera.position.set(0, 3, 10);
 
 
 /* RENDER */
 
-const renderer = new THREE.WebGLRenderer({
-  canvas: canvas,
-  antialias: true,
-  alpha: true
-});
+const renderer =
+  new THREE.WebGLRenderer({
+    canvas: canvas,
+    antialias: true,
+    alpha: true
+  });
+
 
 renderer.setPixelRatio(
-  Math.min(window.devicePixelRatio || 1, 2)
+  Math.min(
+    window.devicePixelRatio || 1,
+    2
+  )
 );
+
 
 renderer.setSize(
   viewer.clientWidth,
@@ -284,12 +788,15 @@ renderer.setSize(
 );
 
 
+
 /* CONTROLES */
 
-const controls = new OrbitControls(
-  camera,
-  renderer.domElement
-);
+const controls =
+  new OrbitControls(
+    camera,
+    renderer.domElement
+  );
+
 
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
@@ -298,28 +805,51 @@ controls.minDistance = 5;
 controls.maxDistance = 16;
 
 
+
 /* LUCES */
 
 scene.add(
-  new THREE.AmbientLight(0xffffff, 2)
+  new THREE.AmbientLight(
+    0xffffff,
+    2
+  )
 );
 
-const light = new THREE.DirectionalLight(
-  0xffffff,
-  3
+
+const light =
+  new THREE.DirectionalLight(
+    0xffffff,
+    3
+  );
+
+
+light.position.set(
+  5,
+  5,
+  8
 );
 
-light.position.set(5, 5, 8);
+
 scene.add(light);
+
 
 
 /* NÚCLEO */
 
-const nucleus = new THREE.Group();
+const nucleus =
+  new THREE.Group();
+
+
 scene.add(nucleus);
 
+
 const nucleonGeometry =
-  new THREE.SphereGeometry(0.42, 32, 32);
+  new THREE.SphereGeometry(
+    0.42,
+    32,
+    32
+  );
+
 
 const protonMaterial =
   new THREE.MeshStandardMaterial({
@@ -327,6 +857,7 @@ const protonMaterial =
     roughness: 0.35,
     metalness: 0.05
   });
+
 
 const neutronMaterial =
   new THREE.MeshStandardMaterial({
@@ -336,6 +867,14 @@ const neutronMaterial =
   });
 
 
+
+/*
+  LITIO-7
+
+  3 protones
+  4 neutrones
+*/
+
 const nucleons = [
 
   [-0.35,  0.20,  0.20, "p"],
@@ -344,9 +883,12 @@ const nucleons = [
 
   [-0.20, -0.10, -0.35, "n"],
   [ 0.35, -0.20, -0.25, "p"],
-  [ 0.00,  0.40, -0.30, "n"]
+  [ 0.00,  0.40, -0.30, "n"],
+
+  [ 0.05,  0.05,  0.48, "n"]
 
 ];
+
 
 nucleons.forEach(n => {
 
@@ -355,11 +897,13 @@ nucleons.forEach(n => {
       ? protonMaterial
       : neutronMaterial;
 
+
   const sphere =
     new THREE.Mesh(
       nucleonGeometry,
       material
     );
+
 
   sphere.position.set(
     n[0],
@@ -367,9 +911,11 @@ nucleons.forEach(n => {
     n[2]
   );
 
+
   nucleus.add(sphere);
 
 });
+
 
 
 /* ÓRBITAS */
@@ -386,18 +932,23 @@ function createOrbit(rotation) {
 
   const curve =
     new THREE.EllipseCurve(
-      0, 0,
-      3.7, 3.7,
+      0,
+      0,
+      3.7,
+      3.7,
       0,
       Math.PI * 2
     );
 
+
   const points =
     curve.getPoints(120);
+
 
   const geometry =
     new THREE.BufferGeometry()
       .setFromPoints(points);
+
 
   const orbit =
     new THREE.LineLoop(
@@ -405,26 +956,50 @@ function createOrbit(rotation) {
       orbitMaterial
     );
 
+
   orbit.rotation.set(
     rotation[0],
     rotation[1],
     rotation[2]
   );
 
+
   scene.add(orbit);
 
 }
 
 
-createOrbit([Math.PI / 2, 0, 0]);
-createOrbit([Math.PI / 2, Math.PI / 3, 0]);
-createOrbit([Math.PI / 3, 0, Math.PI / 2]);
+createOrbit([
+  Math.PI / 2,
+  0,
+  0
+]);
+
+
+createOrbit([
+  Math.PI / 2,
+  Math.PI / 3,
+  0
+]);
+
+
+createOrbit([
+  Math.PI / 3,
+  0,
+  Math.PI / 2
+]);
+
 
 
 /* ELECTRONES */
 
 const electronGeometry =
-  new THREE.SphereGeometry(0.18, 24, 24);
+  new THREE.SphereGeometry(
+    0.18,
+    24,
+    24
+  );
+
 
 const electronMaterial =
   new THREE.MeshStandardMaterial({
@@ -437,73 +1012,102 @@ const electronMaterial =
 const electronData = [
 
   {
-    mesh: new THREE.Mesh(
-      electronGeometry,
-      electronMaterial
-    ),
+    mesh:
+      new THREE.Mesh(
+        electronGeometry,
+        electronMaterial
+      ),
+
     angle: 0,
     speed: 0.9,
-    rotation: new THREE.Euler(
-      Math.PI / 2, 0, 0
-    )
+
+    rotation:
+      new THREE.Euler(
+        Math.PI / 2,
+        0,
+        0
+      )
   },
 
+
   {
-    mesh: new THREE.Mesh(
-      electronGeometry,
-      electronMaterial
-    ),
+    mesh:
+      new THREE.Mesh(
+        electronGeometry,
+        electronMaterial
+      ),
+
     angle: 2,
     speed: 0.65,
-    rotation: new THREE.Euler(
-      Math.PI / 2,
-      Math.PI / 3,
-      0
-    )
+
+    rotation:
+      new THREE.Euler(
+        Math.PI / 2,
+        Math.PI / 3,
+        0
+      )
   },
 
+
   {
-    mesh: new THREE.Mesh(
-      electronGeometry,
-      electronMaterial
-    ),
+    mesh:
+      new THREE.Mesh(
+        electronGeometry,
+        electronMaterial
+      ),
+
     angle: 4,
     speed: 0.75,
-    rotation: new THREE.Euler(
-      Math.PI / 3,
-      0,
-      Math.PI / 2
-    )
+
+    rotation:
+      new THREE.Euler(
+        Math.PI / 3,
+        0,
+        Math.PI / 2
+      )
   }
 
 ];
 
 
 electronData.forEach(e => {
-  scene.add(e.mesh);
+
+  scene.add(
+    e.mesh
+  );
+
 });
 
 
 const radius = 3.7;
 
 
+
 /* ANIMACIÓN */
 
-const clock = new THREE.Clock();
+const clock =
+  new THREE.Clock();
 
 
 function animate() {
 
-  requestAnimationFrame(animate);
-
-  const delta = Math.min(
-    clock.getDelta(),
-    0.05
+  requestAnimationFrame(
+    animate
   );
+
+
+  const delta =
+    Math.min(
+      clock.getDelta(),
+      0.05
+    );
+
 
   electronData.forEach(e => {
 
-    e.angle += e.speed * delta;
+    e.angle +=
+      e.speed * delta;
+
 
     const local =
       new THREE.Vector3(
@@ -512,15 +1116,25 @@ function animate() {
         0
       );
 
-    local.applyEuler(e.rotation);
 
-    e.mesh.position.copy(local);
+    local.applyEuler(
+      e.rotation
+    );
+
+
+    e.mesh.position.copy(
+      local
+    );
 
   });
 
-  nucleus.rotation.y += 0.002;
+
+  nucleus.rotation.y +=
+    0.002;
+
 
   controls.update();
+
 
   renderer.render(
     scene,
@@ -529,7 +1143,9 @@ function animate() {
 
 }
 
+
 animate();
+
 
 
 /* REDIMENSIONAR */
@@ -538,11 +1154,19 @@ window.addEventListener(
   "resize",
   () => {
 
-    const width = viewer.clientWidth;
-    const height = viewer.clientHeight;
+    const width =
+      viewer.clientWidth;
 
-    camera.aspect = width / height;
+    const height =
+      viewer.clientHeight;
+
+
+    camera.aspect =
+      width / height;
+
+
     camera.updateProjectionMatrix();
+
 
     renderer.setSize(
       width,
