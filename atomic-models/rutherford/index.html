@@ -242,20 +242,10 @@ header {
 </main>
 
 
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
-  }
-}
-</script>
-
 <script type="module">
 
-import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.180.0/+esm";
+import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/controls/OrbitControls.js/+esm";
 
 const canvas = document.getElementById("atomCanvas");
 const viewer = canvas.parentElement;
@@ -284,12 +274,13 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 renderer.setPixelRatio(
-  Math.min(window.devicePixelRatio, 2)
+  Math.min(window.devicePixelRatio || 1, 2)
 );
 
 renderer.setSize(
   viewer.clientWidth,
-  viewer.clientHeight
+  viewer.clientHeight,
+  false
 );
 
 
@@ -547,20 +538,16 @@ window.addEventListener(
   "resize",
   () => {
 
-    const width =
-      viewer.clientWidth;
+    const width = viewer.clientWidth;
+    const height = viewer.clientHeight;
 
-    const height =
-      viewer.clientHeight;
-
-    camera.aspect =
-      width / height;
-
+    camera.aspect = width / height;
     camera.updateProjectionMatrix();
 
     renderer.setSize(
       width,
-      height
+      height,
+      false
     );
 
   }
