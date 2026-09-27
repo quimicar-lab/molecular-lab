@@ -6,25 +6,25 @@
 
   <title>QuímicAR</title>
 
-  <script type="module"
-    src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js">
-  </script>
-
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f5f7fa;
       color: #1f2937;
-      text-align: center;
     }
 
     header {
-      padding: 30px 20px 10px;
+      text-align: center;
+      padding: 60px 20px 30px;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin: 0;
     }
 
@@ -34,50 +34,81 @@
 
     .subtitle {
       color: #64748b;
-      margin-top: 8px;
+      font-size: 1.15rem;
+      margin-top: 10px;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: 10px auto 35px;
+      text-align: center;
+      color: #475569;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    .menu {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
     }
 
     .card {
-      max-width: 700px;
-      margin: 25px auto;
       background: white;
       border-radius: 20px;
-      padding: 20px;
+      padding: 35px 25px;
+      text-align: center;
+      text-decoration: none;
+      color: #1f2937;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    model-viewer {
-      width: 100%;
-      height: 450px;
-      background-color: #eef2f7;
-      border-radius: 15px;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     }
 
-    h2 {
-      margin-bottom: 5px;
+    .icon {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
     }
 
-    .formula {
-      font-size: 1.5rem;
+    .card h2 {
+      margin: 5px 0 10px;
+    }
+
+    .card p {
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      color: #2563eb;
       font-weight: bold;
     }
 
-    .info {
-      line-height: 1.7;
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      padding: 20px;
     }
 
-    button[slot="ar-button"] {
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 14px 22px;
-      font-size: 16px;
-      font-weight: bold;
-      position: absolute;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
+    @media (max-width: 650px) {
+      .menu {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
     }
   </style>
 </head>
@@ -89,33 +120,50 @@
   <p class="subtitle">Química en 3D y Realidad Aumentada</p>
 </header>
 
-<div class="card">
+<p class="intro">
+  Explora conceptos de química mediante modelos tridimensionales
+  interactivos. Gira, observa y comprende estructuras que normalmente
+  solo vemos representadas en dos dimensiones.
+</p>
 
-  <h2>Metano</h2>
-  <div class="formula">CH₄</div>
+<main class="menu">
 
-  <model-viewer
-    src="CH4.glb"
-    alt="Metano"
-    camera-controls
-    auto-rotate
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    shadow-intensity="1">
+  <a class="card" href="molecules/CH4/">
 
-    <button slot="ar-button">
-      📱 Ver en Realidad Aumentada
-    </button>
+    <div class="icon">🧬</div>
 
-  </model-viewer>
+    <h2>Moléculas y geometría</h2>
 
-  <div class="info">
-    <p><strong>Modelo RPECV:</strong> AX₄</p>
-    <p><strong>Geometría:</strong> Tetraédrica</p>
-    <p><strong>Ángulo de enlace:</strong> 109,5°</p>
-  </div>
+    <p>
+      Explora moléculas en 3D y comprende su geometría,
+      sus ángulos de enlace y el modelo RPECV.
+    </p>
 
-</div>
+    <span class="button">Explorar moléculas →</span>
+
+  </a>
+
+
+  <a class="card" href="atomic-models/">
+
+    <div class="icon">⚛️</div>
+
+    <h2>Modelos atómicos</h2>
+
+    <p>
+      Descubre cómo ha evolucionado nuestra idea del átomo,
+      desde los primeros modelos hasta la descripción actual.
+    </p>
+
+    <span class="button">Explorar modelos →</span>
+
+  </a>
+
+</main>
+
+<footer>
+  QuímicAR · Recurso educativo interactivo
+</footer>
 
 </body>
 </html>
