@@ -432,21 +432,21 @@ header {
 
     <div class="periodic-card">
 
-      <span class="atomic-number">
-        3
-      </span>
+    <span class="atomic-number" id="atomicNumber">
+  3
+</span>
 
-      <span class="symbol">
-        Li
-      </span>
+    <span class="symbol" id="elementSymbol">
+  Li
+</span>
 
-      <span class="element-name">
-        Litio
-      </span>
+      <span class="element-name" id="elementName">
+  Litio
+</span>
 
-      <span class="atomic-mass">
-        6,94
-      </span>
+   <span class="atomic-mass">
+  6,94
+</span>
 
     </div>
 
@@ -457,41 +457,51 @@ header {
         Elige un elemento
       </label>
 
-      <select id="elementSelect">
-        <option value="Li">
-          Litio (Li)
-        </option>
-      </select>
+     <select id="elementSelect">
+
+  <option value="H">
+    Hidrógeno (H)
+  </option>
+
+  <option value="He">
+    Helio (He)
+  </option>
+
+  <option value="Li" selected>
+    Litio (Li)
+  </option>
+
+</select>
 
 
-      <h2>
-        Litio
-      </h2>
+   <h2 id="elementTitle">
+  Litio
+</h2>
 
-      <div class="element-type">
-        Metal alcalino
-      </div>
+<div class="element-type" id="elementType">
+  Metal alcalino
+</div>
 
 
 <div class="quick-data">
 
-  <span class="data-pill">
+  <span class="data-pill" id="elementGroup">
     Grupo 1
   </span>
 
-  <span class="data-pill">
+  <span class="data-pill" id="elementPeriod">
     Periodo 2
   </span>
 
-  <span class="data-pill">
+  <span class="data-pill" id="elementZ">
     Z = 3
   </span>
 
-  <span class="data-pill">
+  <span class="data-pill" id="elementState">
     Estado: sólido
   </span>
 
-  <span class="data-pill">
+  <span class="data-pill" id="elementConfiguration">
     Configuración electrónica: 1s² 2s¹
   </span>
 
@@ -737,7 +747,112 @@ from "https://cdn.jsdelivr.net/npm/three@0.180.0/+esm";
 import { OrbitControls }
 from "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/controls/OrbitControls.js/+esm";
 
+  /* DATOS DE LOS ELEMENTOS */
 
+const elements = {
+
+  H: {
+    name: "Hidrógeno",
+    symbol: "H",
+    atomicNumber: 1,
+    atomicMass: "1,008",
+    isotope: 1,
+    protons: 1,
+    neutrons: 0,
+    electrons: 1,
+    group: 1,
+    period: 1,
+    type: "No metal",
+    state: "Gas",
+    configuration: "1s¹"
+  },
+
+  He: {
+    name: "Helio",
+    symbol: "He",
+    atomicNumber: 2,
+    atomicMass: "4,003",
+    isotope: 4,
+    protons: 2,
+    neutrons: 2,
+    electrons: 2,
+    group: 18,
+    period: 1,
+    type: "Gas noble",
+    state: "Gas",
+    configuration: "1s²"
+  },
+
+  Li: {
+    name: "Litio",
+    symbol: "Li",
+    atomicNumber: 3,
+    atomicMass: "6,94",
+    isotope: 7,
+    protons: 3,
+    neutrons: 4,
+    electrons: 3,
+    group: 1,
+    period: 2,
+    type: "Metal alcalino",
+    state: "Sólido",
+    configuration: "1s² 2s¹"
+  }
+
+};
+
+/* SELECTOR DE ELEMENTOS */
+
+const elementSelect =
+  document.getElementById("elementSelect");
+
+
+function updateElementInfo(symbol) {
+
+  const element = elements[symbol];
+
+  document.getElementById("atomicNumber").textContent =
+    element.atomicNumber;
+
+  document.getElementById("elementSymbol").textContent =
+    element.symbol;
+
+  document.getElementById("elementName").textContent =
+    element.name;
+
+  document.getElementById("atomicMass").textContent =
+    element.atomicMass;
+
+  document.getElementById("elementTitle").textContent =
+    element.name;
+
+  document.getElementById("elementType").textContent =
+    element.type;
+
+  document.getElementById("elementGroup").textContent =
+    "Grupo " + element.group;
+
+  document.getElementById("elementPeriod").textContent =
+    "Periodo " + element.period;
+
+  document.getElementById("elementZ").textContent =
+    "Z = " + element.atomicNumber;
+
+  document.getElementById("elementState").textContent =
+    "Estado: " + element.state;
+
+  document.getElementById("elementConfiguration").textContent =
+    "Configuración electrónica: " + element.configuration;
+
+}
+
+
+elementSelect.addEventListener(
+  "change",
+  () => {
+    updateElementInfo(elementSelect.value);
+  }
+);
 const canvas =
   document.getElementById("atomCanvas");
 
